@@ -69,6 +69,10 @@ export function loadRelationshipItemData ({ columns, refList, relationship, rela
 				field: refList.fields[relationship.refPath],
 				value: { value: relatedItemId },
 			}],
+      page: {
+        index: 0,
+        size: 10
+      }
 		}, (err, items) => {
 			// // TODO: indicate pagination & link to main list view
 			// this.setState({ items });

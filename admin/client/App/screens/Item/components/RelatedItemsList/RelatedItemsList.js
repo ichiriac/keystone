@@ -132,10 +132,22 @@ const RelatedItemsList = React.createClass({
 				<Spinner />
 			</Center>
 		);
+    let label = this.props.refList.label
+    if (this.props.items && this.props.items.count > this.props.items.results.length) {
+
+    }
 
 		return (
 			<div className="Relationship">
-				<h3 className="Relationship__link"><Link to={listHref}>{this.props.refList.label}</Link></h3>
+				<h3 className="Relationship__link">
+          <Link to={listHref}>{this.props.refList.label}</Link>
+          {
+            (this.props.items && this.props.items.count > this.props.items.results.length) ?
+            <span>
+              Showing { this.props.items.results.length } of { this.props.items.count } items
+            </span> : null
+          }
+        </h3>
 				{this.props.items ? this.renderItems() : loadingElement}
 			</div>
 		);
